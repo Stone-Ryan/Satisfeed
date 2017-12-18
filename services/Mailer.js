@@ -19,14 +19,14 @@ class Mailer extends helper.Mail {
   };
 
   formatAddresses(recipients) {
-    return recipients.map(({ email }) => {
-      return new helper.Email(email);
-    });
-  }
+     return recipients.map(({ email }) => {
+       return new helper.Email(email);
+     });
+   }
 
   addClickTracking() {
     const trackingSettings = new helper.TrackingSettings();
-    const clickTracking = new helper.ClickTacking(true, true);
+    const clickTracking = new helper.ClickTracking(true, true);
 
     trackingSettings.setClickTracking(clickTracking);
     this.addTrackingSettings(trackingSettings);
@@ -34,6 +34,7 @@ class Mailer extends helper.Mail {
 
   addRecipients() {
     const personalize = new helper.Personalization();
+
     this.recipients.forEach(recipient => {
       personalize.addTo(recipient);
     });
@@ -46,7 +47,8 @@ class Mailer extends helper.Mail {
       path: '/v3/mail/send',
       body: this.toJSON()
     });
-    const response = this.sgApi.API(request);
+
+    const response = await this.sgApi.API(request);
     return response;
   }
 }

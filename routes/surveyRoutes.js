@@ -23,6 +23,7 @@ module.exports = app => {
     });
 
     const mailer = new Mailer(survey, surveyTemplate(survey));
+    mailer.send();
   });
 
   // app.get('/api/surveys');
