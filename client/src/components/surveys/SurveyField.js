@@ -11,7 +11,8 @@ export default ({ input, label, meta:{ error, touched } }) => {
           fontStyle: "italic",
           marginBottom: "20px",
           marginLeft: "10px"
-        }}>
+        }}
+      >
         {touched && error}
       </div>
     </div>
