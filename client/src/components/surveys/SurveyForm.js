@@ -6,11 +6,12 @@ import { Link } from 'react-router-dom';
 import SurveyField from './SurveyField';
 
 const FIELDS = [
-  {label: 'Survey Title', name: 'title'},
-  {label: 'Subject Line', name: 'subject'},
-  {label: 'Email Body', name:'body'},
-  {label: 'Recipient List', name:'emails'}
+  {label: 'Survey Title', name: 'title', errMess: ' title'},
+  {label: 'Subject Line', name: 'subject', errMess: ' subject'},
+  {label: 'Email Body', name:'body', errMess: ' body'},
+  {label: 'Recipient List', name:'email', errMess: 'n email'}
 ]
+
 class SurveyForm extends Component {
   renderFields() {
     return _.map(FIELDS, ({ label, name }) => {
@@ -29,7 +30,7 @@ class SurveyForm extends Component {
           <Link to="/surveys" className="red btn-flat white-text">
             Cancel
           </Link>
-          
+
           <button type="submit" className="teal btn-flat right white-text">
             Next
             <i className="material-icons right">done</i>
@@ -40,6 +41,19 @@ class SurveyForm extends Component {
   }
 }
 
+function validate(values) {
+  const errors = {};
+
+  _.each(FIELDS, ({ name, errMess }) => {
+    if(!values[name]) {
+      errors[name] = `You must include a${errMess}`;
+    }
+});
+
+  return errors;
+}
+
 export default reduxForm({
+  validate,
   form: 'surveyForm'
 })(SurveyForm);
