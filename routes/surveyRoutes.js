@@ -42,7 +42,6 @@ module.exports = app => {
     }
   });
 
-  //
   app.post('/api/surveys/webhooks', (req, res) => {
     const p = new Path('/api/surveys/:surveyId/:choice');
 
@@ -70,5 +69,10 @@ module.exports = app => {
       .value();
 
     res.send({});
+  });
+
+  app.get('/api/surveys', requireLogin, async (req, res) => {
+    const surveys = await Survey.find({ _id: req.user.id });
+    res.send(surveys);
   });
 };
