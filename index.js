@@ -41,3 +41,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
+
+//to change webhook to dev env go to https://app.sendgrid.com/settings/mail_settings
+//go to Email notifications
+//change URL to https://polarbastion94668.localtunnel.me/api/surveys/webhooks
