@@ -7,7 +7,7 @@ import Landing from './Landing';
 import * as actions from '../actions';
 import Dashboard from './Dashboard';
 import SurveyNew from './surveys/SurveyNew'
-import Thankyou from './Thankyou'
+import Thankyou from './Thankyou';
 
 class App extends Component {
   componentDidMount() {
