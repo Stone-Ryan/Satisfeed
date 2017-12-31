@@ -7,7 +7,7 @@ import Landing from './Landing';
 import * as actions from '../actions';
 import Dashboard from './Dashboard';
 import SurveyNew from './surveys/SurveyNew'
-
+import Thankyou from './Thankyou'
 
 class App extends Component {
   componentDidMount() {
@@ -22,6 +22,7 @@ class App extends Component {
           <Route exact path='/' component={Landing} />
           <Route exact path='/surveys' component={Dashboard} />
           <Route path='/surveys/new' component={SurveyNew} />
+          <Route path='/api/surveys/:surveyId/:choice' component={Thankyou} />
         </div>
       </BrowserRouter>
     );

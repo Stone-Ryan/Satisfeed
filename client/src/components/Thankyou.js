@@ -1,3 +1,9 @@
 import React from 'react';
 
-// TODO: add thank you component with header
+const Thankyou = () => (
+  <div>
+    <h1>Thanks for the feedback!</h1>
+  </div>
+)
+
+export default Thankyou
