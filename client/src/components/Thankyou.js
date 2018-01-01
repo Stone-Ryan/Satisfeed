@@ -6,4 +6,4 @@ const Thankyou = () => (
   </div>
 )
 
-export default Thankyou
+export default Thankyou;
