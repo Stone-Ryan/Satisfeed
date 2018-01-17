@@ -1,6 +1,6 @@
 module.exports = (req, res, next) => {
   if(req.user.credits < 1) {
-    return res.status(403).send({ error: 'Must be purcahse additional credits' });
+    return res.status(403).send({ error: 'Must purchase additional credits' });
   }
   next();
 };
